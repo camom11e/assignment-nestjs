@@ -1,8 +1,6 @@
 import { NestFactory, Reflector, HttpAdapterHost } from '@nestjs/core'
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger'
-import {
-  ClassSerializerInterceptor,
-} from '@nestjs/common'
+import { ClassSerializerInterceptor } from '@nestjs/common'
 import { AppModule } from './app.module'
 import { AppValidationPipe } from './app.validation.pipe'
 import { PrismaExceptionFilter } from './prisma/exception-filter.filter'
@@ -21,6 +19,8 @@ async function bootstrap() {
     .setTitle('RealWorld API')
     .setVersion('1.0')
     .build()
+
+
 
   const documentFactory = () => SwaggerModule.createDocument(app, config)
   SwaggerModule.setup('api', app, documentFactory)
